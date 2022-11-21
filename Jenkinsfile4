@@ -11,6 +11,11 @@ pipeline {
 
      stages {     
          stage('Docker build and tag') {
+            when {
+                anyOf { 
+			       branch 'main'; branch 'qa' 
+		        }
+            }    
             steps {
 				container ('docker') {
                     sh 'docker build -t jenkins:latest .' 
