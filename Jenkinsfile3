@@ -22,7 +22,7 @@ pipeline {
          }
   
 
-      stage('Vault') {
+      stage('Vault credentials') {
         steps {
           withVault([configuration: configuration, vaultSecrets: secrets]) {
             sh "echo ${env.USERNAME}"
